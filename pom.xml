@@ -91,6 +91,27 @@
           <artifactId>maven-project-info-reports-plugin</artifactId>
           <version>3.6.1</version>
         </plugin>
+        <plugin>
+  <groupId>org.codehaus.mojo</groupId>
+  <artifactId>cobertura-maven-plugin</artifactId>
+  <version>2.7</version>
+  <configuration>
+    <formats>
+      <format>html</format>
+      <format>xml</format> <!-- 👈 This is needed -->
+    </formats>
+  </configuration>
+  <executions>
+    <execution>
+      <phase>package</phase>
+      <goals>
+        <goal>cobertura</goal>
+        <goal>cobertura-check</goal> <!-- Optional: enforce coverage thresholds -->
+      </goals>
+    </execution>
+  </executions>
+</plugin>
+
       </plugins>
     </pluginManagement>
   </build>
